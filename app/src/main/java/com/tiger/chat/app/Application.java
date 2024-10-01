@@ -2,10 +2,13 @@ package com.tiger.chat.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-@SpringBootApplication
-@ComponentScan("com.tiger.chat")
+@SpringBootApplication(scanBasePackages = "com.tiger.chat")
+@EntityScan("com.tiger.chat.infrastructure.repository.entity")
+@EnableJpaRepositories("com.tiger.chat.infrastructure.repository.dao")
 public class Application {
 
     public static void main(String[] args) {
